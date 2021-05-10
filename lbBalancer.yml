@@ -1,0 +1,14 @@
+- name: "Install HAPROXY"
+  package:
+     name: "haproxy"
+     state: present
+- name: "Copy  HAPROXY configuration files "
+  template:
+     src: "haproxy.cfg"
+     dest: /etc/haproxy/
+ 
+- name: "restart HAPROXY"
+  service:
+     name: "haproxy"
+     
+     state: "started"
